@@ -1,0 +1,17 @@
+# Entorno
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Datos (se descargan desde Kaggle, no se suben)
+**/data/*
+!**/data/.gitkeep
+
+# Credenciales
+kaggle.json
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db
