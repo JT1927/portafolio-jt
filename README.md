@@ -2,20 +2,21 @@
 
 Portafolio de proyectos de ciencia de datos de **Jorge Tapia Vásquez**: Data Analyst e Ingeniero Civil Industrial, Magíster en Data Science (UAI).
 
-La idea es publicar **un proyecto por semana**, de temas distintos, para mostrar lo aprendido en el Magíster y seguir aprendiendo con cada uno. Los datos vienen de Kaggle.
+La idea es publicar **un proyecto por semana**, de temas distintos, para mostrar lo aprendido en el Magíster y seguir aprendiendo con cada uno. Los datos vienen de Kaggle y de APIs públicas como OpenF1.
 
-Stack: Python, SQL, scikit-learn, Power BI.
+Stack: Python, SQL, scikit-learn, FastAPI, React, Power BI.
 
 ## Proyectos
 
 | # | Proyecto | Tema | Estado |
 |---|----------|------|--------|
 | 1 | [Proyecto 1 Spotify](Proyecto%201%20Spotify/) | Modelo predictivo tabular | En curso |
-| 2 | Series de tiempo | Pronóstico | Pendiente |
+| 2 | [Proyecto 2 F1 Strategy Lab](Proyecto%202%20F1) | Análisis de estrategia según el reglamento, modelo explicativo, API y web | Terminado |
 | 3 | NLP en español / Netflix | Texto | Pendiente |
 | 4 | Segmentación / clustering | CRM | Pendiente |
 | 5 | Dashboard Power BI | Datos públicos de Chile | Pendiente |
 | 6-7 | Proyecto end-to-end desplegado | FastAPI + React + AWS | Pendiente |
+| 8 | Series de tiempo | Pronóstico | Pendiente |
 
 ## Estructura
 
