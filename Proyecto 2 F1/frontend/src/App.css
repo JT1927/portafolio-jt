@@ -1,0 +1,191 @@
+/* Estructura general y pestañas Carrera / Equipos / Circuitos. Las variables viven en tokens.css. */
+.app { max-width: 1320px; margin: 0 auto; padding: 0 var(--esp-4) 60px; }
+
+/* Barra superior */
+.topbar {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--esp-4);
+  padding: 22px 0 14px; border-bottom: 3px solid var(--rojo);
+}
+.logo { font-weight: 900; font-size: var(--t-2xl); font-style: italic; text-transform: uppercase; letter-spacing: 1px; }
+.logo span { color: var(--rojo-texto); }
+.sub { color: var(--gris); font-size: var(--t-s); text-transform: uppercase; letter-spacing: 2px; }
+.cuadros {
+  height: 12px; opacity: 0.9;
+  background: repeating-conic-gradient(#fff 0% 25%, #15151e 0% 50%) 50% / 24px 24px;
+}
+
+/* Controles */
+.controles { display: flex; gap: var(--esp-3); flex-wrap: wrap; margin: 20px 0; min-height: 44px; }
+.controles:empty { display: none; }
+
+/* Pestañas */
+.tabs { display: flex; gap: 6px; margin: var(--esp-4) 0 22px; flex-wrap: wrap; }
+.tab {
+  background: var(--panel); border: none; color: var(--gris); padding: 11px 26px;
+  font: inherit; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  cursor: pointer; transform: skewX(-14deg); border-bottom: 3px solid transparent;
+  transition: color 0.15s, background 0.15s;
+}
+.tab span { display: inline-block; transform: skewX(14deg); }
+.tab:hover { color: var(--texto); background: var(--panel2); }
+.tab.activa { color: var(--texto); background: var(--rojo); border-bottom-color: var(--blanco); }
+
+.nota { color: var(--gris); font-size: var(--t-m); margin-bottom: var(--esp-2); max-width: 900px; line-height: 1.5; }
+.nota b { color: var(--texto); }
+.aviso { color: var(--gris); padding: 30px 0; }
+.error { color: var(--error); padding: 30px 0; }
+.banner {
+  background: #2b2b12; border: 1px solid #5c5520; padding: 10px 14px;
+  margin: var(--esp-3) 0; font-size: var(--t-m); border-radius: var(--radio-s);
+}
+
+/* Tarjetas de resumen (Carrera) */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: var(--esp-2); }
+
+/* Filtros */
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
+
+/* Leyenda */
+.leyenda { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: var(--t-s); color: var(--gris); margin: var(--esp-3) 0 var(--esp-2); }
+.leyenda-item { display: flex; align-items: center; gap: 6px; }
+.punto { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.marca { width: 4px; height: 14px; display: inline-block; }
+
+/* Tower de carrera */
+.carrera-grafico { background: var(--fondo); padding: 1px var(--esp-2) var(--esp-2); border-radius: var(--radio-m); }
+.tabla { overflow-x: auto; padding-bottom: 6px; }
+.cabecera, .fila {
+  display: grid; grid-template-columns: 56px 190px 82px 240px 1fr;
+  gap: 14px; align-items: center; min-width: 1030px;
+}
+.cabecera { color: var(--gris); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 1px; padding: 0 12px 8px; }
+.eje { position: relative; height: 14px; }
+.eje span { position: absolute; font-size: 11px; transform: translateX(-50%); }
+.eje span:first-child { transform: none; }
+
+.piloto {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--equipo, transparent) 26%, var(--panel)) 0, var(--panel) 240px);
+  margin-bottom: 4px; border-radius: 4px; min-width: 1030px; cursor: pointer;
+  transition: background 0.15s;
+}
+.piloto:hover { background: var(--panel2); }
+.piloto.seleccionado { outline: 2px solid var(--blanco); background: #2e2e44; }
+.piloto .fila { padding: 9px 12px; }
+
+.pos { font-weight: 900; font-size: var(--t-xl); text-align: center; font-style: italic; }
+.pos.dnf { color: var(--error); font-size: var(--t-m); }
+.pos.oro { color: #ffd700; }
+.pos.plata { color: #dcdce6; }
+.pos.bronce { color: #d98c45; }
+
+.nombre { line-height: 1.1; }
+.nombre .apellido { font-weight: 700; font-size: 17px; letter-spacing: 0.5px; text-transform: uppercase; }
+.nombre .pila { font-size: var(--t-xs); color: var(--gris); }
+.equipo-txt { font-size: var(--t-xs); color: var(--gris); }
+.delta { font-weight: 700; font-size: var(--t-m); }
+.delta small { color: var(--gris); font-weight: 400; margin-left: 4px; }
+.sube { color: var(--sube); }
+.baja { color: var(--baja); }
+.igual { color: var(--gris); }
+.etiqueta {
+  position: relative; font-size: var(--t-xs); font-weight: 700; padding: 5px 8px 5px 22px; border-radius: var(--radio-s);
+  background: #12121a;
+}
+.etiqueta::before {
+  content: ""; position: absolute; left: 8px; top: 9px; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--c, #555570);
+}
+
+/* Desglose de paradas por piloto */
+.desglose { display: flex; flex-wrap: wrap; gap: 3px 8px; margin-top: 3px; font-weight: 400; font-size: 11px; color: var(--texto-2); }
+.desglose.sin { color: var(--gris); }
+.ficha { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--texto-2); }
+.ficha i { width: 8px; height: 8px; border-radius: 2px; background: var(--c, var(--gris)); display: inline-block; }
+
+/* Línea de neumáticos */
+.linea {
+  position: relative; height: 30px; border-radius: var(--radio-s); overflow: hidden;
+  background-color: var(--panel2);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+.stint {
+  position: absolute; top: 0; bottom: 0; display: flex; align-items: center;
+  justify-content: center; font-size: var(--t-xs); font-weight: 900; color: #111;
+  border-right: 2px solid #15151e; overflow: hidden;
+  transform-origin: left center; animation: crecer 0.5s ease-out both;
+}
+.s-fin { position: absolute; right: 5px; font-size: 10px; font-weight: 700; opacity: 0.75; }
+.evento { position: absolute; top: 0; bottom: 0; width: 3px; z-index: 2; }
+.sc { background: var(--bandera-sc); box-shadow: 0 0 6px var(--bandera-sc); }
+.vsc { background: var(--bandera-vsc); }
+.roja { background: #ff0000; width: 4px; }
+
+.detalle {
+  padding: 10px 16px 14px 80px; font-size: var(--t-m); color: var(--texto-2);
+  border-top: 1px solid var(--borde); display: flex; gap: 8px 28px; flex-wrap: wrap;
+}
+.detalle b { color: var(--texto); }
+.paradas-lista { list-style: none; flex-basis: 100%; display: grid; gap: 4px; }
+.paradas-lista small { color: var(--gris); }
+.paradas-lista .ficha { min-width: 112px; font-size: var(--t-s); }
+
+/* Comparación de pilotos */
+.comparacion {
+  background: linear-gradient(180deg, var(--panel3), var(--panel)); border: 1px solid var(--borde);
+  border-radius: var(--radio-m); padding: 16px 18px; margin: var(--esp-3) 0 18px;
+  animation: entrar 0.3s both;
+}
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.comp-cab { display: flex; gap: 10px; align-items: baseline; margin-bottom: var(--esp-2); }
+.comp-tabla { width: 100%; border-collapse: collapse; margin-top: var(--esp-4); font-size: var(--t-m); }
+.comp-tabla td { padding: 7px 10px; border-top: 1px solid var(--borde); }
+.comp-tabla td:not(.comp-et) { font-weight: 700; width: 28%; }
+.comp-et { color: var(--gris); text-transform: uppercase; font-size: var(--t-xs); letter-spacing: 1px; }
+@media (max-width: 800px) { .comp-grid { grid-template-columns: 1fr; } }
+
+/* Equipos: equipos (puntos) contra el rango de los circuitos (franja) */
+.dispersion { padding: var(--esp-2) 0 var(--esp-1); }
+.disp-fila { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: center; min-height: 52px; }
+.disp-nombre { display: flex; gap: 10px; align-items: baseline; font-weight: 700; font-size: var(--t-m); line-height: 1.25; }
+.disp-nombre .punto { flex: none; transform: translateY(1px); }
+.disp-nombre small { display: block; font-weight: 400; font-size: var(--t-xs); color: var(--gris); font-variant-numeric: tabular-nums; }
+.disp-pista { position: relative; height: 26px; margin: 0 8px; }
+.disp-pista::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--borde); }
+.disp-franja { position: absolute; top: 4px; bottom: 4px; border-radius: var(--radio-pill); opacity: 0.3; }
+.disp-punto {
+  position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--panel); transform: translate(-50%, -50%); cursor: default;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.disp-punto.apagado { opacity: 0.2; }
+.disp-punto.foco { transform: translate(-50%, -50%) scale(1.4); z-index: 2; border-color: var(--blanco); }
+.disp-eje { min-height: 0; margin-bottom: var(--esp-1); }
+.disp-eje .disp-pista { height: 16px; }
+.disp-eje .disp-pista::before { display: none; }
+.disp-eje span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--gris); font-variant-numeric: tabular-nums; }
+.disp-leyenda { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 10px; font-size: var(--t-xs); color: var(--gris); }
+.disp-leyenda i { display: inline-block; vertical-align: -1px; margin-right: 6px; }
+.ley-franja { width: 26px; height: 10px; border-radius: var(--radio-pill); background: #9a9ab0; opacity: 0.45; }
+.ley-punto { width: 10px; height: 10px; border-radius: 50%; background: #dcdce6; }
+
+/* Circuitos: una tarjeta por pista, con su trazado */
+.circuitos-grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: var(--esp-3); padding: 1px; background: var(--fondo); }
+.circ-tarjeta { background: var(--panel); border-radius: var(--radio-m); padding: var(--esp-3) var(--esp-4); border-left: 3px solid var(--rojo); display: flex; flex-direction: column; gap: var(--esp-3); min-width: 0; }
+.circ-cab { display: flex; justify-content: space-between; align-items: center; gap: var(--esp-3); }
+.circ-cab h3 { font-size: 20px; font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1.1; }
+.circ-cab small { color: var(--gris); font-size: var(--t-xs); }
+.circ-cab small.poco { color: #ffcf5c; }
+.circ-barra { display: flex; height: 18px; background: var(--panel2); border-radius: var(--radio-s); overflow: hidden; }
+.circ-barra > div { height: 100%; transform-origin: left; animation: crecer 0.5s var(--curva) both; }
+.circ-datos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--esp-2); }
+.circ-datos dt { font-size: 10px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; }
+.circ-datos dd { font-size: var(--t-l); font-weight: 900; font-style: italic; font-variant-numeric: tabular-nums; }
+.pista-mini { flex: none; }
+.pista-mini.vacia { background: var(--panel2); border-radius: var(--radio-s); opacity: 0.4; }
+
+@media (max-width: 800px) {
+  .disp-fila { grid-template-columns: 1fr; gap: 6px; }
+  .detalle { padding-left: 16px; }
+  .tab { padding: 9px 16px; }
+  .app { padding: 0 var(--esp-3) 48px; }
+}

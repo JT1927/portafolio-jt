@@ -1,0 +1,20 @@
+/* ¿Por qué?: resumen del modelo nuevo. Usa los tokens de tokens.css. */
+.pq-bloque { margin-bottom: var(--esp-3); }
+.pq-texto { color: var(--texto-2); font-size: var(--t-m); line-height: 1.5; max-width: 80ch; margin-bottom: var(--esp-3); }
+.pq-fila {
+  display: grid; grid-template-columns: 190px 1fr 56px; gap: var(--esp-3); align-items: center;
+  padding: 4px 6px; margin-bottom: 2px; border-radius: var(--radio-s); font-size: var(--t-m);
+}
+.pq-fila:hover { background: var(--panel2); }
+.pq-fila span small { display: block; color: var(--gris); font-size: var(--t-xs); }
+.pq-fila b { text-align: right; font-style: italic; font-size: var(--t-l); font-variant-numeric: tabular-nums; }
+.pq-pista { background: var(--panel2); height: 16px; border-radius: var(--radio-s); overflow: hidden; }
+.pq-pista i { display: block; height: 100%; background: #6e6e8a; transform-origin: left; animation: crecer 0.6s var(--curva) both; }
+.pq-pista i.top { background: var(--rojo); }
+.pq-fila.mejor span { font-weight: 700; }
+.pq-modelos { margin-bottom: var(--esp-2); }
+
+@media (max-width: 700px) {
+  .pq-fila { grid-template-columns: 1fr 52px; }
+  .pq-fila .pq-pista { grid-column: 1 / -1; grid-row: 2; }
+}

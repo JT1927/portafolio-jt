@@ -18,3 +18,12 @@ Thumbs.db
 
 # Notebook backups
 **/*_backup.ipynb
+# --- Proyecto 2 F1 ---
+.venv/
+**/node_modules/
+**/__pycache__/
+**/dist/
+*.pyc
+.env
+"Proyecto 2 F1/data/mapa/"
+.impeccable/
